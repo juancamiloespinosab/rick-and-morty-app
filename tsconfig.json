@@ -2,7 +2,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "strictPropertyInitialization": false,
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -21,7 +22,11 @@
     "lib": ["es2020", "dom"],
     "paths": {
       "@app/*": ["app/*"],
-      "@assets/*": ["app/assets/*"],
+      "@assets/*": ["assets/*"],
+      "@components/*": ["app/components/*"],
+      "@models/*": ["app/models/*"],
+      "@pages/*": ["app/pages/*"],
+      "@services/*": ["app/services/*"],
     }
   },
   "angularCompilerOptions": {
