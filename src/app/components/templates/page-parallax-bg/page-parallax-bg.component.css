@@ -2,8 +2,6 @@
 .front {
   top: 0;
   position: absolute;
-  width: 100vw;
-  height: 100vh;
 }
 
 .background {
@@ -11,8 +9,5 @@
 }
 
 .front {
-  display: grid;
-  place-content: center;
-
   z-index: 100;
 }

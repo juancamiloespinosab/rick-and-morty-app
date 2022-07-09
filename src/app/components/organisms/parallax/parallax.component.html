@@ -1,7 +1,7 @@
-<div class="cover"></div>
-<div #scene class="scene">
-  <div data-depth="0.02" class="scene__bg-container">
-    <div class="scene__bg"></div>
+<div class="cover full-viewport"></div>
+<div #scene class="scene display-grid full-viewport">
+  <div data-depth="0.02" class="scene__bg-container full-percentage">
+    <div class="scene__bg full-percentage"></div>
   </div>
     <img data-depth="0.05" class="scene__monster" [src]="monsterUrl" alt="" />
     <img data-depth="0.1" class="scene__morty" [src]="mortyUrl" alt="" />

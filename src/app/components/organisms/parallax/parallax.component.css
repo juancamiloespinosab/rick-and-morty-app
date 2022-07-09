@@ -1,7 +1,5 @@
 .cover {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
 }
@@ -9,25 +7,17 @@
 .scene {
   position: relative;
   overflow: hidden;
-  width: 100vw;
-  height: 100vh;
 
-  display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
 }
 
 .scene__bg-container {
-  height: 100%;
-  width: 100%;
-
   grid-column: 1 / span 12;
   grid-row: 1 / span 12;
 }
 
 .scene__bg {
-  height: 100%;
-  width: 100%;
   background-image: url("assets/images/parallax/planet.png");
   background-position: center;
   background-size: cover;
