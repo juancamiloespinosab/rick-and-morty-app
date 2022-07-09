@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { RouterModule, Routes } from '@angular/router';
-
 import { HeaderComponent } from './bones/header/header.component';
 import { ParallaxComponent } from './organisms/parallax/parallax.component';
 import { PageParallaxBgComponent } from './templates/page-parallax-bg/page-parallax-bg.component';
@@ -18,20 +16,6 @@ import { ButtonComponent } from './atoms/button/button.component';
 import { IconButtonComponent } from './atoms/icon-button/icon-button.component';
 import { InputComponent } from './atoms/input/input.component';
 import { ImageComponent } from './atoms/image/image.component';
-
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'main'
-  },
-  {
-    path: '**',
-    pathMatch: 'full',
-    redirectTo: 'not-found'
-  }
-];
-
 @NgModule({
   declarations: [
     ParallaxComponent,
@@ -50,7 +34,9 @@ const routes: Routes = [
     InputComponent,
     ImageComponent,
   ],
-  imports: [CommonModule],
+  imports: [
+    CommonModule
+  ],
   exports: [
     ParallaxComponent,
     PageParallaxBgComponent,
