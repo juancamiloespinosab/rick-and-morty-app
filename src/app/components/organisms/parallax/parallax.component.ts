@@ -16,8 +16,6 @@ export class ParallaxComponent {
   
   ngAfterViewInit() {    
     const Parallax = require('parallax-js');
-    const parallaxInstance = new Parallax(this.scene.nativeElement, {
-      relativeInput: true
-    });
+    const parallaxInstance = new Parallax(this.scene.nativeElement);
   }
 }

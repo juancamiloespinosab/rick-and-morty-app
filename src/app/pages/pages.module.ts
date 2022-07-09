@@ -10,14 +10,23 @@ import { PagesComponent } from './pages.component';
 
 const routes: Routes = [
   {
+    path: 'main',
+    component: MainComponent,
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'main'
   },
   {
-    path: 'main',
-    component: MainComponent,
-  },
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'not-found'
+  }
 ];
 
 @NgModule({

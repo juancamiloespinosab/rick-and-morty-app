@@ -1,0 +1,18 @@
+.background,
+.front {
+  top: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.background {
+  z-index: 10;
+}
+
+.front {
+  display: grid;
+  place-content: center;
+
+  z-index: 100;
+}

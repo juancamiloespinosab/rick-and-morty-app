@@ -28,7 +28,7 @@
 .scene__bg {
   height: 100%;
   width: 100%;
-  background-image: url("assets/images/parallax/background.png");
+  background-image: url("assets/images/parallax/planet.png");
   background-position: center;
   background-size: cover;
   transform: scale(1.1);
