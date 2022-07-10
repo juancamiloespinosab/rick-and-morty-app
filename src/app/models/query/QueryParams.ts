@@ -1,3 +1,3 @@
 export interface QueryParams {
-    [param: string]: string
+    [param: string]: string | number
 }

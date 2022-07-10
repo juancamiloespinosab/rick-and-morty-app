@@ -1,5 +1,6 @@
-export interface Location {
-    name: string;
+import { Item } from "../Item";
+
+export interface Location extends Item {
     url: string;
     id?: number;
     type?: string;

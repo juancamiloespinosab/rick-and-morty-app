@@ -1,6 +1,7 @@
-export interface Episode {
+import { Item } from "../Item";
+
+export interface Episode extends Item {
     id: number;
-    name: string;
     air_date: string;
     episode: string;
     characters: string[];

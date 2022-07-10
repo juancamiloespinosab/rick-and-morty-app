@@ -6,6 +6,6 @@
   [scrollWindow]="false"
   (scrolled)="loadCharacters()"
 >
-  <p *ngFor="let character of characterList">{{ character.name }}</p>
+  <p *ngFor="let item of list">{{ item.name }}</p>
 </section>
-{{ characterList.length }}
+{{ list.length }}

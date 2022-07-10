@@ -13,6 +13,8 @@ export class RickAndMortyApiService {
   constructor(private httpClient: HttpClient) {}
 
   getAllCharacters(query: QueryParams) {
+    console.log('getAllCharacters - query', query);
+    
     const url = `${this.rickAndMortyApi.base}${this.rickAndMortyApi.paths.character}`;
     let params = new HttpParams().appendAll(query);
 

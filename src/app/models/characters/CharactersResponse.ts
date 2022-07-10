@@ -3,11 +3,14 @@ import { Character } from './Character';
 export interface Info {
   count: number;
   pages: number;
-  next: string;
+  next?: string;
   prev?: any;
 }
 
 export interface CharactersResponse {
   info: Info;
   results: Character[];
+}
+export interface CharactersResponseError {
+  error: string;
 }

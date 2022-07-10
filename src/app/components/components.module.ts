@@ -16,6 +16,9 @@ import { ButtonComponent } from './atoms/button/button.component';
 import { IconButtonComponent } from './atoms/icon-button/icon-button.component';
 import { InputComponent } from './atoms/input/input.component';
 import { ImageComponent } from './atoms/image/image.component';
+import { StateModule } from '@app/state/state.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CardListComponent } from './organisms/card-list/card-list.component';
 @NgModule({
   declarations: [
     ParallaxComponent,
@@ -33,9 +36,12 @@ import { ImageComponent } from './atoms/image/image.component';
     IconButtonComponent,
     InputComponent,
     ImageComponent,
+    CardListComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    StateModule,
+    InfiniteScrollModule
   ],
   exports: [
     ParallaxComponent,
