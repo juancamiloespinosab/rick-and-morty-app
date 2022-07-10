@@ -1,9 +1,97 @@
 @import url("./styles/reset.css");
-@import url("./styles/variables.css");
+@import url("./styles/theme.css");
 @import url("./styles/common.css");
 @import url("./styles/browsers.css");
-@import url("./styles/theme.css");
+@import url("./styles/animations.css");
 
+/* ------------ <PAGES> ----------- */
 
+/* ------------ </PAGES> ----------- */
 
+/* ------------ <TEMPLATES> ----------- */
 
+/* ------------ </TEMPLATES> ----------- */
+
+/* ------------ <BONES> ----------- */
+
+/* ------------ </BONES> ----------- */
+
+/* ------------ <ORGANISMS> ----------- */
+
+/* ------------ </ORGANISMS> ----------- */
+
+/* ------------ <MOLECULES> ----------- */
+
+/* <MENU> */
+
+.menu__list {
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  /* background-color: red; */
+}
+
+.menu__item {
+  width: 100%;
+  margin-right: 10px;
+  /* background-color: blue; */
+}
+
+.menu__link {
+  text-align: center;
+  padding: 10px 0;
+  background-color: var(--dark-blue);
+  border-radius: 10px;
+}
+
+/* </MENU> */
+
+/* </CARD> */
+
+.card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.card:hover .card__background {
+  filter: brightness(0.9);
+  transform: scale(1.1);
+}
+
+.card:hover .card__front {
+  opacity: 0;
+}
+
+.card__background {
+  position: absolute;
+  object-fit: cover;
+  filter: brightness(0.2);
+  transform: scale(1);
+
+  transition-property: filter, transform;
+  transition-duration: 0.5s;
+}
+
+.card__background--loaded {
+  animation: load 2s;
+  animation-fill-mode: forwards;
+}
+
+.card__front {
+  position: absolute;
+  color: var(--white);
+  text-align: center;
+  opacity: 1;
+
+  transition: opacity 0.5s;
+}
+
+/* </CARD> */
+
+/* ------------ </MOLECULES> ----------- */
+
+/* ------------ <ATOMS> ----------- */
+
+/* ------------ </MOLECULES> ----------- */

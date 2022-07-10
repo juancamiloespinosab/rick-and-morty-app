@@ -1,11 +1,24 @@
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 body,
 p,
 h1,
-h2 {
+h2,
+a,
+ul,
+li {
   margin: 0;
   padding: 0;
+}
+
+li {
+
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
 }

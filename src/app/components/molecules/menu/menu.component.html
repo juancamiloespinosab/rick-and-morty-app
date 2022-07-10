@@ -1,1 +1,19 @@
-<p>menu works!</p>
+<nav class="menu full-percentage">
+  <ul class="menu__list full-percentage display-flex">
+    <li class="menu__item display-grid">
+      <a class="menu__link" [routerLink]="['/main/characters']" routerLinkActive="menu__link--active"
+        >Characters</a
+      >
+    </li>
+    <li class="menu__item display-grid">
+      <a class="menu__link" [routerLink]="['/main/locations']" routerLinkActive="menu__link--active"
+        >Locations</a
+      >
+    </li>
+    <li class="menu__item display-grid">
+      <a class="menu__link" [routerLink]="['/main/episodes']" routerLinkActive="menu__link--active"
+        >Episodes</a
+      >
+    </li>
+  </ul>
+</nav>

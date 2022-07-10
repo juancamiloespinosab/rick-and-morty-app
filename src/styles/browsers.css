@@ -2,21 +2,16 @@
 
 .characters-list {
   scrollbar-width: thin;
-  scrollbar-color: white gray;
+  scrollbar-color: var(--secundary) transparent;
 }
 
 /* Chrome, Edge, and Safari */
 
 .characters-list::-webkit-scrollbar {
-    width: 9px;
-  }
-  
-  .characters-list::-webkit-scrollbar-track {
-    background: gray;
+    width: 5px;
   }
   
   .characters-list::-webkit-scrollbar-thumb {
-    background-color: white;
+    background-color: var(--secundary);
     border-radius: 20px;
-    border: 3px solid grey;
   }

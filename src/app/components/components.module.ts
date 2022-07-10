@@ -17,6 +17,7 @@ import { InputComponent } from './atoms/input/input.component';
 import { ImageComponent } from './atoms/image/image.component';
 import { StateModule } from '@app/state/state.module';
 import { CardListComponent } from './organisms/card-list/card-list.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     ParallaxComponent,
@@ -36,7 +37,8 @@ import { CardListComponent } from './organisms/card-list/card-list.component';
   imports: [
     CommonModule,
     StateModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    RouterModule
   ],
   exports: [
     ParallaxComponent,

@@ -25,8 +25,8 @@ export class CardListComponent implements OnInit {
 
   actualListName: string = 'characters';
 
-  modalScrollDistance = 0.5;
-  modalScrollThrottle = 1000;
+  modalScrollDistance = 2;
+  modalScrollThrottle = 500;
 
   constructor(
     private store: Store<AppState>,
