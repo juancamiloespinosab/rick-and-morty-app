@@ -1,0 +1,50 @@
+.card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+
+}
+
+.card:hover .background {
+  filter: brightness(0.9);
+  transform: scale(1.1);
+}
+
+.card:hover .front {
+    opacity: 0;
+}
+
+.background {
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(0.2);
+  transform: scale(1);
+
+  transition-property: filter, transform;
+  transition-duration: 0.5s;
+}
+
+.background-loaded {
+    animation: load 2s;
+    animation-fill-mode: forwards   
+}
+
+.front {
+  position: absolute;
+  color: white;
+  text-align: center;
+  opacity: 1;
+
+  transition: opacity 0.5s;
+}
+
+@keyframes load {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

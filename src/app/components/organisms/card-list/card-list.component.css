@@ -1,9 +1,12 @@
 .characters-list {
-  width: 100%;
-  height: 100%;
   overflow-y: scroll;
+
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 10px;
 }
 
-p {
-  height: 200px;
+.message {
+  grid-column: 1;
+  background-color: red;
 }

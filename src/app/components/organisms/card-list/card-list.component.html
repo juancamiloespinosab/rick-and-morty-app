@@ -1,11 +1,12 @@
 <section
-  class="characters-list"
+  class="characters-list full-percentage display-grid"
   infinite-scroll
   [infiniteScrollDistance]="modalScrollDistance"
   [infiniteScrollThrottle]="modalScrollThrottle"
   [scrollWindow]="false"
   (scrolled)="loadItems()"
 >
-  <p *ngFor="let item of list">{{ item.name }}</p>
+  <m-card *ngFor="let item of list" [data]="item"></m-card>
+  <div class="message" *ngIf="true">Mensaje de prueba</div>
 </section>
 {{ list.length }}
