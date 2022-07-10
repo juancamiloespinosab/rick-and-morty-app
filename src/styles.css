@@ -46,7 +46,7 @@
 
 /* </MENU> */
 
-/* </CARD> */
+/* <CARD> */
 
 .card {
   position: relative;
@@ -84,6 +84,7 @@
   color: var(--white);
   text-align: center;
   opacity: 1;
+  padding: 20px;
 
   transition: opacity 0.5s;
 }

@@ -7,13 +7,15 @@ import { charactersReducer } from './reducers/characters.reducer';
 import { locationsReducer } from './reducers/locations.reducer';
 import { CharactersEffects } from './effects/characters.effects';
 import { LocationsEffects } from './effects/locations.effects';
+import { EpisodesEffects } from './effects/episodes.effects';
+import { episodesReducer } from './reducers/episodes.reducer';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forRoot({ 'characters': charactersReducer, 'locations': locationsReducer }),
-    EffectsModule.forRoot([CharactersEffects, LocationsEffects]),
+    StoreModule.forRoot({ 'characters': charactersReducer, 'locations': locationsReducer, 'episodes': episodesReducer }),
+    EffectsModule.forRoot([CharactersEffects, LocationsEffects, EpisodesEffects]),
   ],
   exports: [
     StoreModule,

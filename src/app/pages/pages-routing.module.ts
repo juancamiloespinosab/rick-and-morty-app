@@ -28,22 +28,10 @@ const routes: Routes = [
         path: 'locations',
         component: CardListComponent
       },
-      // {
-      //   path: 'characters',
-      //   component: CharactersComponent
-      // },
-      // {
-      //   path: 'characters/:id',
-      //   component: CharacterDetailComponent
-      // },
-      // {
-      //   path: 'locations',
-      //   component: LocationsComponent
-      // },
-      // {
-      //   path: 'episodes',
-      //   component: EpisodesComponent
-      // }
+      {
+        path: 'episodes',
+        component: CardListComponent
+      }
     ]
   },
   {

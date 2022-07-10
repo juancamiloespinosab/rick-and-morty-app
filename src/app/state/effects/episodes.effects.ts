@@ -3,26 +3,22 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-import {
-  setCharacters,
-  CharactersActionTypes,
-  errorCharacters
-} from '@state/actions/characters.actions';
 import { RickAndMortyApiService } from '@app/services/rick-and-morty-api/rick-and-morty-api.service';
 import { QueryParams } from '@app/models/query/QueryParams';
+import { EpisodesActionTypes, errorEpisodes, setEpisodes } from '../actions/episodes.actions';
 
 @Injectable()
-export class CharactersEffects {
-  loadCharacters$ = createEffect(() =>
+export class EpisodesEffects {
+  loadEpisodes$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CharactersActionTypes.getCharacters),
+      ofType(EpisodesActionTypes.getEpisodes),
       mergeMap((payload: QueryParams) =>
         this.rickAndMortyApiService
-          .getAllCharacters({ name: payload['name'], page: payload['page'] })
+          .getAllEpisodes({ name: payload['name'], page: payload['page'] })
           .pipe(
-            map((payload: any) => setCharacters(payload)),
+            map((payload: any) => setEpisodes(payload)),
             catchError(({ error }) => {
-              return of(errorCharacters(error.error));
+              return of(errorEpisodes(error.error));
             })
           )
       )
