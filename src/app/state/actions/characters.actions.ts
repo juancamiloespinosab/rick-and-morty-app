@@ -1,7 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 
 import { QueryParams } from '@app/models/query/QueryParams';
-import { CharactersResponse, CharactersResponseError } from '@app/models/characters/CharactersResponse';
+import { CharactersResponse } from '@app/models/characters/CharactersResponse';
+import { ResponseError } from '@app/models/ResponseError';
 
 export enum CharactersActionTypes {
   getCharacters = '[Characters] Get All Characters',
@@ -21,5 +22,5 @@ export const setCharacters = createAction(
 
 export const errorCharacters = createAction(
   CharactersActionTypes.errorCharacters,
-  props<CharactersResponseError>()
+  props<ResponseError>()
 );

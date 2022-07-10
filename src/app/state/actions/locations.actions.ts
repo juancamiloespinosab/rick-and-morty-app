@@ -1,13 +1,26 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Location } from '@models/locations/Location';
-import { ListState } from '@app/models/ListState';
+import { QueryParams } from '@models/query/QueryParams';
+import { LocationsResponse } from '@models/locations/LocationsResponse';
+import { ResponseError } from '@models/ResponseError';
+
+export enum LocationsActionTypes {
+  getLocations = '[Locations] Get All Locations',
+  setLocations = '[Locations] Locations Loaded Success',
+  errorLocations = '[Locations] Locations Load Error',
+}
 
 export const getLocations = createAction(
-  '[Locations] Get All Locations'
+  LocationsActionTypes.getLocations,
+  props<QueryParams>()
 );
 
 export const setLocations = createAction(
-  '[Locations] Locations Loaded Success',
-  props<ListState<Location>>()
+  LocationsActionTypes.setLocations,
+  props<LocationsResponse>()
+);
+
+export const errorLocations = createAction(
+  LocationsActionTypes.errorLocations,
+  props<ResponseError>()
 );

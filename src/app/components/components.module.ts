@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import { HeaderComponent } from './bones/header/header.component';
 import { ParallaxComponent } from './organisms/parallax/parallax.component';
 import { PageParallaxBgComponent } from './templates/page-parallax-bg/page-parallax-bg.component';
 import { DisplayContentComponent } from './bones/display-content/display-content.component';
-import { CharactersComponent } from './organisms/characters/characters.component';
-import { LocationsComponent } from './organisms/locations/locations.component';
-import { EpisodesComponent } from './organisms/episodes/episodes.component';
 import { CharacterDetailComponent } from './organisms/character-detail/character-detail.component';
 import { MenuComponent } from './molecules/menu/menu.component';
 import { SearchComponent } from './molecules/search/search.component';
@@ -17,7 +16,6 @@ import { IconButtonComponent } from './atoms/icon-button/icon-button.component';
 import { InputComponent } from './atoms/input/input.component';
 import { ImageComponent } from './atoms/image/image.component';
 import { StateModule } from '@app/state/state.module';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CardListComponent } from './organisms/card-list/card-list.component';
 @NgModule({
   declarations: [
@@ -25,9 +23,6 @@ import { CardListComponent } from './organisms/card-list/card-list.component';
     PageParallaxBgComponent,
     HeaderComponent,
     DisplayContentComponent,
-    CharactersComponent,
-    LocationsComponent,
-    EpisodesComponent,
     CharacterDetailComponent,
     MenuComponent,
     SearchComponent,
@@ -48,9 +43,6 @@ import { CardListComponent } from './organisms/card-list/card-list.component';
     PageParallaxBgComponent,
     HeaderComponent,
     DisplayContentComponent,
-    CharactersComponent,
-    LocationsComponent,
-    EpisodesComponent,
     CharacterDetailComponent,
     MenuComponent,
     SearchComponent,

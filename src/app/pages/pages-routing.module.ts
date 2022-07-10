@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { CardListComponent } from '@app/components/organisms/card-list/card-list.component';
-import { CharacterDetailComponent } from '@app/components/organisms/character-detail/character-detail.component';
-import { CharactersComponent } from '@app/components/organisms/characters/characters.component';
-import { EpisodesComponent } from '@app/components/organisms/episodes/episodes.component';
-import { LocationsComponent } from '@app/components/organisms/locations/locations.component';
 import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -25,6 +22,10 @@ const routes: Routes = [
     children: [
       {
         path: 'characters',
+        component: CardListComponent
+      },
+      {
+        path: 'locations',
         component: CardListComponent
       },
       // {

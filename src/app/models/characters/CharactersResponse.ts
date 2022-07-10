@@ -11,6 +11,3 @@ export interface CharactersResponse {
   info: Info;
   results: Character[];
 }
-export interface CharactersResponseError {
-  error: string;
-}

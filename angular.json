@@ -23,7 +23,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/styles/reset.css",
+              "src/styles/variables.css",
+              "src/styles/common.css",
+              "src/styles/browsers.css"
             ],
             "scripts": []
           },

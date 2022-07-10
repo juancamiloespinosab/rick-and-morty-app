@@ -4,7 +4,7 @@
   [infiniteScrollDistance]="modalScrollDistance"
   [infiniteScrollThrottle]="modalScrollThrottle"
   [scrollWindow]="false"
-  (scrolled)="loadCharacters()"
+  (scrolled)="loadItems()"
 >
   <p *ngFor="let item of list">{{ item.name }}</p>
 </section>
