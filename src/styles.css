@@ -6,6 +6,27 @@
 
 /* ------------ <PAGES> ----------- */
 
+/* <MAIN> */
+
+.main {
+  max-width: 900px;
+  max-height: 90vh;
+
+  width: 90vw;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10vh 80vh;
+}
+
+@media (max-width: 600px) {
+  .main {
+    gap: 20px;
+  }
+}
+
+/* </MAIN> */
+
 /* ------------ </PAGES> ----------- */
 
 /* ------------ <TEMPLATES> ----------- */
@@ -13,6 +34,23 @@
 /* ------------ </TEMPLATES> ----------- */
 
 /* ------------ <BONES> ----------- */
+
+/* <HEADER> */
+
+.header {
+  grid-template-columns: 60% 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 600px) {
+  .header {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+  }
+}
+
+/* </HEADER> */
 
 /* ------------ </BONES> ----------- */
 
@@ -75,7 +113,34 @@
   border-radius: 10px;
 }
 
+@media (max-width: 600px) {
+  .menu__list {
+    padding: 0;
+  }
+}
+
 /* </MENU> */
+
+/* <SEARCH> */
+
+.search {
+  justify-content: stretch;
+}
+
+.search__container {
+  grid-template-columns: 90% 1fr;
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .menu__list {
+    padding: 0;
+  }
+}
+
+/* </SEARCH> */
 
 /* <CARD> */
 
