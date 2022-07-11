@@ -8,6 +8,7 @@ export enum EpisodesActionTypes {
   getEpisodes = '[Episodes] Get All Episodes',
   setEpisodes = '[Episodes] Episodes Loaded Success',
   errorEpisodes = '[Episodes] Episodes Load Error',
+  clearEpisodes = '[Episodes] Clear Episodes',
 }
 
 export const getEpisodes = createAction(
@@ -23,4 +24,8 @@ export const setEpisodes = createAction(
 export const errorEpisodes = createAction(
   EpisodesActionTypes.errorEpisodes,
   props<ResponseError>()
+);
+
+export const clearEpisodes = createAction(
+  EpisodesActionTypes.clearEpisodes
 );

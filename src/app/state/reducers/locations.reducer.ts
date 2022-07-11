@@ -9,10 +9,22 @@ export const initialState: ListState<Location> = {
     totalPages: 1,
   },
   items: [],
+  query: {
+    name: ''
+  }
 };
 
 export const locationsReducer = createReducer(
   initialState,
+  on(actions.getLocations, (state, payload) => {    
+    return {
+      pagination: state.pagination,
+      items: state.items,
+      query: {
+        name: payload['name']
+      }
+    };
+  }),
   on(actions.setLocations, (state, payload) => {    
     return {
       pagination: {
@@ -20,6 +32,10 @@ export const locationsReducer = createReducer(
         totalPages: payload.info.pages,
       },
       items: payload.results,
+      query: {
+        name: state.query['name']
+      }
     };
-  })
+  }),
+  on(actions.clearLocations, (state) => initialState)
 );

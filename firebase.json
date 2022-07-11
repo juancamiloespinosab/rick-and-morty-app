@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "./dist/rick-and-morty-app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

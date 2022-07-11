@@ -8,6 +8,7 @@ export enum CharactersActionTypes {
   getCharacters = '[Characters] Get All Characters',
   setCharacters = '[Characters] Characters Loaded Success',
   errorCharacters = '[Characters] Characters Load Error',
+  clearCharacters = '[Characters] Clear Characters',
 }
 
 export const getCharacters = createAction(
@@ -23,4 +24,8 @@ export const setCharacters = createAction(
 export const errorCharacters = createAction(
   CharactersActionTypes.errorCharacters,
   props<ResponseError>()
+);
+
+export const clearCharacters = createAction(
+  CharactersActionTypes.clearCharacters
 );

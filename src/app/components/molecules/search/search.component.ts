@@ -1,15 +1,53 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from '@app/models/characters/Character';
+import { Episode } from '@app/models/episodes/Episode';
+import { AppState } from '@app/models/state/AppState';
+import { ListState } from '@app/models/state/ListState';
+import { Location } from '@app/models/locations/Location';
+import { UtilsService } from '@app/services/helpers/utils/utils.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { getCharacters } from '@app/state/actions/characters.actions';
 
 @Component({
   selector: 'm-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
+  listState$: Observable<ListState<Character | Location | Episode>>;
+  listState: ListState<Character | Location | Episode>;
 
-  constructor() { }
+  actualListName: string = 'characters';
+
+  constructor(
+    private store: Store<AppState>,
+    private utilsService: UtilsService
+  ) {}
 
   ngOnInit(): void {
+    this.actualListName = this.utilsService.getLastPath();
+    this.selectStore();
+    this.subscribeToObservable();
   }
 
+  selectStore() {
+    this.listState$ = this.store.select(this.actualListName);
+  }
+
+  subscribeToObservable() {
+    this.listState$.subscribe((data) => {
+      this.listState = data;
+    });
+  }
+
+  search(query: string) {
+    const action = this.utilsService.getAction(this.actualListName);
+    this.store.dispatch(
+      action.get({
+        name: query,
+        page: 1,
+      })
+    );
+  }
 }

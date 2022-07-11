@@ -8,6 +8,10 @@ import { AppState } from '@app/models/state/AppState';
 import { Item } from '@app/models/Item';
 import { UtilsService } from '@app/services/helpers/utils/utils.service';
 import { Episode } from '@app/models/episodes/Episode';
+import {
+  clearCharacters,
+  getCharacters,
+} from '@app/state/actions/characters.actions';
 
 @Component({
   selector: 'o-card-list',
@@ -15,8 +19,6 @@ import { Episode } from '@app/models/episodes/Episode';
   styleUrls: ['./card-list.component.css'],
 })
 export class CardListComponent implements OnInit {
-
-
   listState$: Observable<ListState<Character | Location | Episode>>;
   listState: ListState<Character | Location | Episode>;
   list: Item[] = [];
@@ -33,8 +35,17 @@ export class CardListComponent implements OnInit {
 
   ngOnInit(): void {
     this.actualListName = this.utilsService.getLastPath();
+    this.clearData();
     this.selectStore();
     this.subscribeToObservable();
+    this.loadItems();
+  }
+
+  clearData() {
+    const action = this.utilsService.getAction(this.actualListName);
+
+    this.store.dispatch(action.clear());
+    this.list = [];
   }
 
   selectStore() {
@@ -44,16 +55,17 @@ export class CardListComponent implements OnInit {
   subscribeToObservable() {
     this.listState$.subscribe((data) => {
       this.listState = data;
+      if (data.query['name'] != '') {
+        console.log(88, data);
+        
+        this.list = [];
+      }
       this.updateList();
     });
   }
 
   updateList() {
     this.list = [...this.list, ...this.listState.items];
-  }
-
-  ngAfterViewInit() {
-    this.loadItems();
   }
 
   loadItems() {
@@ -63,8 +75,8 @@ export class CardListComponent implements OnInit {
     if (actualPage <= totalPages) {
       const action = this.utilsService.getAction(this.actualListName);
       this.store.dispatch(
-        action({
-          name: '',
+        action.get({
+          name: this.listState.query['name'],
           page: this.listState.pagination.page,
         })
       );
@@ -72,6 +84,4 @@ export class CardListComponent implements OnInit {
       // TODO: manejar mensaje
     }
   }
-
-
 }

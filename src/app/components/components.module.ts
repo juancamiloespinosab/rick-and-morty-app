@@ -18,6 +18,7 @@ import { ImageComponent } from './atoms/image/image.component';
 import { StateModule } from '@app/state/state.module';
 import { CardListComponent } from './organisms/card-list/card-list.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     ParallaxComponent,
@@ -38,7 +39,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     StateModule,
     InfiniteScrollModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     ParallaxComponent,

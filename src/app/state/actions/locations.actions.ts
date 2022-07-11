@@ -8,6 +8,7 @@ export enum LocationsActionTypes {
   getLocations = '[Locations] Get All Locations',
   setLocations = '[Locations] Locations Loaded Success',
   errorLocations = '[Locations] Locations Load Error',
+  clearLocations = '[Locations] Clear Locations',
 }
 
 export const getLocations = createAction(
@@ -23,4 +24,8 @@ export const setLocations = createAction(
 export const errorLocations = createAction(
   LocationsActionTypes.errorLocations,
   props<ResponseError>()
+);
+
+export const clearLocations = createAction(
+  LocationsActionTypes.clearLocations
 );

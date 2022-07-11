@@ -1,19 +1,28 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { getCharacters } from '@app/state/actions/characters.actions';
-import { getEpisodes } from '@app/state/actions/episodes.actions';
-import { getLocations } from '@app/state/actions/locations.actions';
+import {
+  clearCharacters,
+  getCharacters,
+} from '@app/state/actions/characters.actions';
+import {
+  clearEpisodes,
+  getEpisodes,
+} from '@app/state/actions/episodes.actions';
+import {
+  clearLocations,
+  getLocations,
+} from '@app/state/actions/locations.actions';
 import { filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UtilsService {
-  listActions = [
-    { name: 'characters', action: getCharacters },
-    { name: 'locations', action: getLocations },
-    { name: 'episodes', action: getEpisodes },
-  ];
+  listActions: { [params: string]: any } = {
+    characters: { get: getCharacters, clear: clearCharacters },
+    locations: { get: getLocations, clear: clearLocations },
+    episodes: { get: getEpisodes, clear: clearEpisodes },
+  };
 
   placeholderImagesFolderUrl = 'assets/images/placeholder/';
 
@@ -27,11 +36,8 @@ export class UtilsService {
     return segments[segments.length - 1].path;
   }
 
-  getAction(name: string) {
-    return (
-      this.listActions.find((action) => action.name === name)?.action ||
-      getCharacters
-    );
+  getAction(name: string) {    
+    return this.listActions[name];
   }
 
   getPlaceholderBackground() {
