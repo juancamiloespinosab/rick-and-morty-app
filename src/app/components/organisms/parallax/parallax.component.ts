@@ -12,6 +12,7 @@ export class ParallaxComponent {
   @ViewChild('scene') scene: ElementRef<HTMLDivElement>;
   voidScene: boolean = false;
 
+  backgroundUrl = 'assets/images/parallax/planet.png'
   monsterUrl = 'assets/images/parallax/monster.png'
   rickUrl = 'assets/images/parallax/rick.png'
   mortyUrl = 'assets/images/parallax/morty.png'
