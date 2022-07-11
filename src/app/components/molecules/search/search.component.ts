@@ -26,7 +26,6 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.actualListName = this.utilsService.getLastPath();
     this.selectStore();
     this.subscribeToObservable();
   }
@@ -42,6 +41,8 @@ export class SearchComponent implements OnInit {
   }
 
   search(query: string) {
+    this.actualListName = this.utilsService.getLastPath();
+
     const action = this.utilsService.getAction(this.actualListName);
     this.store.dispatch(
       action.get({
