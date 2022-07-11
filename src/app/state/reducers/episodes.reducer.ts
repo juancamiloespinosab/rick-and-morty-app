@@ -18,7 +18,10 @@ export const episodesReducer = createReducer(
   initialState,
   on(actions.getEpisodes, (state, payload) => {    
     return {
-      pagination: state.pagination,
+      pagination: {
+        page: +payload['page'] ?? state.pagination.page,
+        totalPages: state.pagination.totalPages
+      },
       items: state.items,
       query: {
         name: payload['name']

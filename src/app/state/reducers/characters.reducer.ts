@@ -18,7 +18,10 @@ export const charactersReducer = createReducer(
   initialState,
   on(actions.getCharacters, (state, payload) => {    
     return {
-      pagination: state.pagination,
+      pagination: {
+        page: +payload['page'] ?? state.pagination.page,
+        totalPages: state.pagination.totalPages
+      },
       items: state.items,
       query: {
         name: payload['name']

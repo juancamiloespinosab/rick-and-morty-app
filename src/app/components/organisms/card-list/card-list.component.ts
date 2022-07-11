@@ -55,11 +55,7 @@ export class CardListComponent implements OnInit {
   subscribeToObservable() {
     this.listState$.subscribe((data) => {
       this.listState = data;
-      if (data.query['name'] != '') {
-        console.log(88, data);
-        
-        this.list = [];
-      }
+      if (data.query['name'] != '') this.list = []; 
       this.updateList();
     });
   }
