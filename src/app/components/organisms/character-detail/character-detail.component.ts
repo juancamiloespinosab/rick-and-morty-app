@@ -6,7 +6,7 @@ import {
   getCharacterDetail,
 } from '@app/state/actions/character-detail.actions';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { UtilsService } from '@app/services/helpers/utils/utils.service';
 import { initialState } from '@app/state/reducers/character-detail.reducer';
 
@@ -21,6 +21,7 @@ export class CharacterDetailComponent implements OnInit {
 
   actualListName: string = 'character-detail';
 
+  characterStateSubscription: Subscription;
   characterState$: Observable<Character | any>;
   characterState: Character;
 
@@ -49,7 +50,7 @@ export class CharacterDetailComponent implements OnInit {
   }
 
   subscribeToObservable() {
-    this.characterState$.subscribe((data) => {
+    this.characterStateSubscription = this.characterState$.subscribe((data) => {
       this.characterState = data;
       this.updateData();
     });
@@ -65,5 +66,9 @@ export class CharacterDetailComponent implements OnInit {
         id: this.id,
       })
     );
+  }
+
+  ngOnDestroy() {
+    this.characterStateSubscription.unsubscribe();
   }
 }

@@ -6,7 +6,7 @@ import { ListState } from '@app/models/state/ListState';
 import { Location } from '@app/models/locations/Location';
 import { UtilsService } from '@app/services/helpers/utils/utils.service';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { getCharacters } from '@app/state/actions/characters.actions';
 
 @Component({
@@ -15,6 +15,8 @@ import { getCharacters } from '@app/state/actions/characters.actions';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
+  listStateSubscription: Subscription;
+  
   listState$: Observable<ListState<Character | Location | Episode>>;
   listState: ListState<Character | Location | Episode>;
 
@@ -35,7 +37,7 @@ export class SearchComponent implements OnInit {
   }
 
   subscribeToObservable() {
-    this.listState$.subscribe((data) => {
+    this.listStateSubscription = this.listState$.subscribe((data) => {
       this.listState = data;
     });
   }
@@ -50,5 +52,9 @@ export class SearchComponent implements OnInit {
         page: 1,
       })
     );
+  }
+
+  ngOnDestroy() {
+    this.listStateSubscription.unsubscribe();
   }
 }

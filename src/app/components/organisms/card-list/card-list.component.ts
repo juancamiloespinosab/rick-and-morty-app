@@ -3,7 +3,7 @@ import { Character } from '@app/models/characters/Character';
 import { Location } from '@app/models/locations/Location';
 import { ListState } from '@app/models/state/ListState';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AppState } from '@app/models/state/AppState';
 import { Item } from '@app/models/Item';
 import { UtilsService } from '@app/services/helpers/utils/utils.service';
@@ -19,6 +19,8 @@ import {
   styleUrls: ['./card-list.component.css'],
 })
 export class CardListComponent implements OnInit {
+  listStateSubscription: Subscription;
+
   listState$: Observable<ListState<Character | Location | Episode>>;
   listState: ListState<Character | Location | Episode>;
   list: Item[] = [];
@@ -53,7 +55,7 @@ export class CardListComponent implements OnInit {
   }
 
   subscribeToObservable() {
-    this.listState$.subscribe((data) => {
+    this.listStateSubscription = this.listState$.subscribe((data) => {
       this.listState = data;
       this.updateList();
     });
@@ -80,5 +82,9 @@ export class CardListComponent implements OnInit {
     } else {
       // TODO: manejar mensaje
     }
+  }
+
+  ngOnDestroy() {
+    this.listStateSubscription.unsubscribe();
   }
 }
