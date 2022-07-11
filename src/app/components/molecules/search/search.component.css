@@ -1,0 +1,10 @@
+.search {
+  justify-content: stretch;
+}
+
+.search__container {
+  grid-template-columns: 90% 1fr;
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+}

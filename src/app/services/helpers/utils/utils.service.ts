@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { getCharacters } from '@app/state/actions/characters.actions';
 import { getEpisodes } from '@app/state/actions/episodes.actions';
 import { getLocations } from '@app/state/actions/locations.actions';
+import { filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UtilsService {
-
   listActions = [
     { name: 'characters', action: getCharacters },
     { name: 'locations', action: getLocations },
@@ -16,7 +16,7 @@ export class UtilsService {
   ];
 
   placeholderImagesFolderUrl = 'assets/images/placeholder/';
-  
+
   constructor(private router: Router) {}
 
   getLastPath(): string {
@@ -29,17 +29,23 @@ export class UtilsService {
 
   getAction(name: string) {
     return (
-      this.listActions.find((action) => action.name === name)
-        ?.action || getCharacters
+      this.listActions.find((action) => action.name === name)?.action ||
+      getCharacters
     );
   }
 
   getPlaceholderBackground() {
     const actualPath = this.getLastPath();
-    return `${this.placeholderImagesFolderUrl}${actualPath}.png`
+    return `${this.placeholderImagesFolderUrl}${actualPath}.png`;
   }
 
   navigateTo(url: string) {
     this.router.navigate([url]);
+  }
+
+  getRouterEventsObservable() {
+    return this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd)
+    );
   }
 }

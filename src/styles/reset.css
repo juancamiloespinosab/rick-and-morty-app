@@ -8,7 +8,8 @@ h1,
 h2,
 a,
 ul,
-li {
+li,
+input {
   margin: 0;
   padding: 0;
 }
@@ -20,5 +21,12 @@ li {
 
 a {
   text-decoration: none;
+  color: var(--white);
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  outline: none;
   color: var(--white);
 }

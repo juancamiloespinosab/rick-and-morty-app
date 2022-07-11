@@ -5,12 +5,18 @@
 }
 
 .scene {
-  filter: blur(10px);
+  filter: blur(0);
   position: relative;
   overflow: hidden;
-
+  
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
+
+  transition: filter 1s;
+}
+
+.blur {
+  filter: blur(10px);
 }
 
 .scene__bg-container {
