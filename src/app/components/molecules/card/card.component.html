@@ -1,9 +1,9 @@
-<div class="card full-percentage pointer" [ngClass]="{ 'card__background--loaded': backgroundLoaded }">
-  <img
-    class="card__background full-percentage"
+<div class="card full-percentage pointer" [ngClass]="{ 'load-animation': backgroundLoaded }" (click)="onCardClick()">
+  <a-image
+    [class]="'card__background full-percentage'"
     [src]="data.image?? backgroundPlaceholder"
-    (load)="backgroundLoaded = true"
-  >
+    (onLoadImage)="backgroundLoaded = true"
+  ></a-image>
   <div class="card__front display-grid grid-center full-percentage">
     <h3>{{ data.name }}</h3>
   </div>

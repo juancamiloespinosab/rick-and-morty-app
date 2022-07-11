@@ -1,1 +1,37 @@
-<p>character-detail works!</p>
+<section
+  class="characters-detail full-percentage display-grid grid-center"
+  [ngClass]="{ 'load-animation': imageLoaded }"
+>
+  <a-image
+    [class]="'characters-detail__avatar'"
+    [src]="data.image ?? imagePlaceholder"
+    (onLoadImage)="imageLoaded = true"
+  ></a-image>
+  <ul class="characters-detail__list">
+    <li class="characters-detail__item">
+      <h2>
+        {{ data.name }}
+      </h2>
+    </li>
+    <li class="characters-detail__item display-grid">
+      <span>Status</span>
+      <span>{{ data.status }}</span>
+    </li>
+    <li class="characters-detail__item display-grid">
+      <span>Species</span>
+      <span>{{ data.species }}</span>
+    </li>
+    <li class="characters-detail__item display-grid">
+      <span>Gender</span>
+      <span>{{ data.gender }}</span>
+    </li>
+    <li class="characters-detail__item display-grid">
+      <span>Last known location</span>
+      <span>{{ data.location.name }}</span>
+    </li>
+    <li class="characters-detail__item display-grid">
+      <span>First seen in</span>
+      <span>{{ data.origin.name }}</span>
+    </li>
+  </ul>
+</section>

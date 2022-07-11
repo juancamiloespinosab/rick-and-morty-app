@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CardListComponent } from '@app/components/organisms/card-list/card-list.component';
+import { CharacterDetailComponent } from '@app/components/organisms/character-detail/character-detail.component';
 import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'characters',
         component: CardListComponent
+      },
+      {
+        path: 'characters/:id',
+        component: CharacterDetailComponent
       },
       {
         path: 'locations',

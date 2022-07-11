@@ -38,4 +38,8 @@ export class UtilsService {
     const actualPath = this.getLastPath();
     return `${this.placeholderImagesFolderUrl}${actualPath}.png`
   }
+
+  navigateTo(url: string) {
+    this.router.navigate([url]);
+  }
 }

@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from '@app/models/characters/Character';
 import { Location } from '@app/models/locations/Location';
 import { ListState } from '@app/models/state/ListState';
-import { getCharacters } from '@app/state/actions/characters.actions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '@app/models/state/AppState';
 import { Item } from '@app/models/Item';
-import { getLocations } from '@app/state/actions/locations.actions';
 import { UtilsService } from '@app/services/helpers/utils/utils.service';
+import { Episode } from '@app/models/episodes/Episode';
 
 @Component({
   selector: 'o-card-list',
@@ -19,8 +17,8 @@ import { UtilsService } from '@app/services/helpers/utils/utils.service';
 export class CardListComponent implements OnInit {
 
 
-  listState$: Observable<ListState<Character | Location>>;
-  listState: ListState<Character | Location>;
+  listState$: Observable<ListState<Character | Location | Episode>>;
+  listState: ListState<Character | Location | Episode>;
   list: Item[] = [];
 
   actualListName: string = 'characters';
@@ -30,7 +28,6 @@ export class CardListComponent implements OnInit {
 
   constructor(
     private store: Store<AppState>,
-    private router: Router,
     private utilsService: UtilsService
   ) {}
 

@@ -21,10 +21,10 @@ export class RickAndMortyApiService {
   }
 
   getOneCharacterById(id: number) {
-    const url = `${this.rickAndMortyApi.base}${this.rickAndMortyApi.paths.character}`;
+    const url = `${this.rickAndMortyApi.base}${this.rickAndMortyApi.paths.character}/${id}`;
     let params = new HttpParams().appendAll({ id });
 
-    return this.httpClient.get(url, { params });
+    return this.httpClient.get(url);
   }
 
   getAllLocations(query: QueryParams) {

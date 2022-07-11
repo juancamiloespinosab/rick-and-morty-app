@@ -5,7 +5,7 @@ export interface Character extends Item {
   id: number;
   status: string;
   species: string;
-  type: string;
+  characterType: string;
   gender: string;
   origin: Location;
   location: Location;

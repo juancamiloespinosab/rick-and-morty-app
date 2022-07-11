@@ -18,6 +18,37 @@
 
 /* ------------ <ORGANISMS> ----------- */
 
+/* <CHARACTER-DETAIL> */
+
+.characters-detail {
+  gap: 10px;
+  opacity: 0;
+}
+
+.characters-detail__avatar {
+  height: 30vh;
+  border-radius: 10px;
+}
+
+.characters-detail__list {
+  color: var(--white);
+  padding: 10px;
+  text-align: center;
+}
+
+.characters-detail__item {
+  padding: 5px;
+}
+
+.characters-detail__item span:first-child {
+  color: var(--secundary);
+}
+.characters-detail__item span:nth-child(2) {
+  font-size: 1.2em;
+}
+
+/* </CHARACTER-DETAIL> */
+
 /* ------------ </ORGANISMS> ----------- */
 
 /* ------------ <MOLECULES> ----------- */
@@ -72,11 +103,6 @@
 
   transition-property: filter, transform;
   transition-duration: 0.5s;
-}
-
-.card__background--loaded {
-  animation: load 2s;
-  animation-fill-mode: forwards;
 }
 
 .card__front {
